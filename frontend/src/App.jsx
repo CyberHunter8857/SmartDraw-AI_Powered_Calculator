@@ -57,7 +57,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen w-screen bg-neutral-900 text-neutral-100">
+    <div className="h-screen w-screen bg-neutral-900 text-neutral-100 overflow-hidden">
       <Controls
         currentColor={currentColor}
         setCurrentColor={setCurrentColor}
@@ -68,7 +68,7 @@ export default function App() {
         setVariables={setVariables}
       />
 
-      <div className="relative">
+      <div className="relative flex-1">
         <CanvasBoard
           currentColor={currentColor}
           onReady={onCanvasReady}
@@ -79,8 +79,19 @@ export default function App() {
         </div>
       </div>
 
+      {/* Mobile-friendly loading overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-neutral-800 rounded-lg p-6 text-center">
+            <div className="animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-white text-lg font-medium">Processing your drawing...</p>
+            <p className="text-neutral-400 text-sm mt-2">This may take a few seconds</p>
+          </div>
+        </div>
+      )}
+
       {error && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 rounded bg-red-600 px-4 py-2 text-white shadow">
+        <div className="fixed bottom-4 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 rounded bg-red-600 px-4 py-2 text-white shadow text-sm sm:text-base text-center z-40">
           {error}
         </div>
       )}

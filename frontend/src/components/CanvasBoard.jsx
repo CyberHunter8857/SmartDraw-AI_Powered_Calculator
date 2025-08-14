@@ -46,19 +46,26 @@ export default function CanvasBoard({
     const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
     return { x, y };
   };
+  
   const start = (e) => {
+    e.preventDefault(); // Prevent default touch behavior on mobile
     drawing.current = true;
     last.current = getPos(e);
   };
 
   const move = (e) => {
     if (!drawing.current) return;
+    e.preventDefault(); // Prevent default touch behavior on mobile
 
     const ctx = canvasRef.current.getContext('2d');
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.strokeStyle = currentColor;
-    ctx.lineWidth = brushSize;
+    
+    // Adjust brush size for mobile devices
+    const isMobile = 'ontouchstart' in window;
+    const adjustedBrushSize = isMobile ? Math.max(brushSize, 4) : brushSize;
+    ctx.lineWidth = adjustedBrushSize;
 
     const { x, y } = getPos(e);
     ctx.beginPath();
@@ -68,15 +75,16 @@ export default function CanvasBoard({
     last.current = { x, y };
   };
 
-  const end = () => {
+  const end = (e) => {
+    if (e) e.preventDefault(); // Prevent default touch behavior on mobile
     drawing.current = false;
   };
 
   return (
-    <div className="h-[calc(100vh-96px)] w-full bg-neutral-900">
+    <div className="h-[calc(100vh-120px)] sm:h-[calc(100vh-96px)] w-full bg-neutral-900">
       <canvas
         ref={canvasRef}
-        className="h-full w-full cursor-crosshair"
+        className="h-full w-full cursor-crosshair touch-none"
         onMouseDown={start}
         onMouseMove={move}
         onMouseUp={end}
@@ -84,6 +92,7 @@ export default function CanvasBoard({
         onTouchStart={start}
         onTouchMove={move}
         onTouchEnd={end}
+        style={{ touchAction: 'none' }} // Prevent scrolling while drawing on mobile
       />
     </div>
   );

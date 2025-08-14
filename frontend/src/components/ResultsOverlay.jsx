@@ -17,11 +17,11 @@ function ResultCard({ expr, result, x, y }) {
   const nodeRef = useRef(null);
   return (
     <Draggable nodeRef={nodeRef} defaultPosition={{ x: x ?? 40, y: y ?? 40 }}>
-      <div ref={nodeRef} className="pointer-events-auto rounded bg-black/70 p-2 text-white shadow">
+      <div ref={nodeRef} className="pointer-events-auto rounded bg-black/70 p-2 sm:p-3 text-white shadow max-w-[200px] sm:max-w-[250px]">
         <div className="text-xs opacity-80">expr</div>
-        <div className="mb-1">{safeMath(expr)}</div>
+        <div className="mb-1 text-xs sm:text-sm">{safeMath(expr)}</div>
         <div className="text-xs opacity-80">result</div>
-        <div>{safeMath(result)}</div>
+        <div className="text-xs sm:text-sm">{safeMath(result)}</div>
       </div>
     </Draggable>
   );
@@ -45,7 +45,7 @@ function safeMath(s) {
   
   // Render as regular text with proper wrapping
   return (
-    <div className="font-mono text-sm break-words leading-relaxed">
+    <div className="font-mono text-xs sm:text-sm break-words leading-relaxed">
       {text}
     </div>
   );
