@@ -18,7 +18,7 @@ A powerful AI-powered calculator that solves mathematical expressions, equations
 
 ## 🚀 Live Demo
 
-[Coming Soon - Deploy your project to see it in action!]
+[Live Demo](https://github.com/CyberHunter8857/SmartDraw-AI_Powered_Calculator.git)
 
 ## 🛠️ Tech Stack
 
@@ -50,8 +50,8 @@ A powerful AI-powered calculator that solves mathematical expressions, equations
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/smartdraw-calculator.git
-cd smartdraw-calculator
+git clone https://github.com/CyberHunter8857/SmartDraw-AI_Powered_Calculator.git
+cd SmartDraw-AI_Powered_Calculator
 ```
 
 ### 2. Backend Setup
@@ -231,7 +231,7 @@ SmartDraw-Calculator/
 
 If you have any questions or need help:
 
-- Open an [issue](https://github.com/yourusername/smartdraw-calculator/issues)
+- Open an [issue](https://github.com/CyberHunter8857/SmartDraw-AI_Powered_Calculator/issues)
 
 ---
 
