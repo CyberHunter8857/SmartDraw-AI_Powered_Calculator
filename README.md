@@ -1,5 +1,8 @@
 # 🎨 SmartDraw AI-powered Calculator
 
+![SmartDraw AI Poster](https://github.com/CyberHunter8857/SmartDraw-AI_Powered_Calculator/blob/main/poster.png?raw=true)
+
+
 A powerful AI-powered calculator that solves mathematical expressions, equations, and analyzes graphical problems through hand-drawn input. Built with React frontend and Node.js backend, powered by Google's Gemini AI.
 
 ## ✨ Features
@@ -18,7 +21,7 @@ A powerful AI-powered calculator that solves mathematical expressions, equations
 
 ## 🚀 Live Demo
 
-[Live Demo](https://github.com/CyberHunter8857/SmartDraw-AI_Powered_Calculator.git)
+[Live Demo](https://smart-draw-ai-powered-calculator-fe.vercel.app/)
 
 ## 🛠️ Tech Stack
 
